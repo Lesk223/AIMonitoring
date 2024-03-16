@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2.0,
+    "id": "YandexGPT",
+    "type": "widget",
+    "name": "YandexGPT widget",
+    "namespace": "YandexGPT",
+    "version": "1.0",
+    "host_permissions": ["https://llm.api.cloud.yandex.net/*"],
+    "author": "a.volkov",
+    "url": "https://t.me/voolkov7",
+    "description": "Chatting with OpenAI widget",
+    "actions": {
+        "widget.YandexGPT.view": {
+            "class": "WidgetView"
+        }
+    },
+
+    "widget": {
+        "name": "YandexGPT",
+        "size": {
+            "width": 10,
+            "height": 5
+        },
+        "refresh_rate": 0,
+        "js_class": "CWidgetYandexGPT"
+    },
+    "assets": {
+        "css": ["widget.css"],
+        "js": ["class.widget.js"]
+    }
+}

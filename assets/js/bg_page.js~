@@ -1,0 +1,100 @@
+class CWidgetOpenAI extends CWidget {
+
+    apiToken = this._fields.token;
+    apiEndpoint = 'https://cors-anywhere.herokuapp.com/https://llm.api.cloud.yandex.net/foundationModels/v1/completion';
+
+    setContents(response) {
+        super.setContents(response);
+
+        this.userInput = this._body.querySelector('.chat-form-message');
+        this.chatLog = this._body.querySelector('.chat-log');
+
+        this._body.querySelector('.chat-form-message').addEventListener('keydown', e => {
+            if (e.code == 'Enter' || e.code == 'NumpadEnter') {
+                this.sendMessage();
+            }
+        });
+        this._body.querySelector('.chat-form-button').addEventListener('click', this.sendMessage.bind(this));
+    }
+
+    async sendMessage() {
+        const question = this.userInput.value;
+        this.userInput.value = '';
+
+        if (!question) {
+            return;
+        }
+
+        const myMessagePromise = new Promise((resolve, reject) => {
+            resolve(question);
+        });
+
+        const myMessage = this.createMessage(myMessagePromise, 'user');
+        this.chatLog.appendChild(myMessage);
+
+        const botMessagePromise = new Promise(async (resolve, reject) => {
+          try {
+            const response = await fetch(this.apiEndpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Api-Key AQVNyWY5uccLZ6Fsl9a1ndtRVpJT7UvWhuD_IcC7',
+                'User-Agent': 'Python-requests/x.y.z',
+              },
+              body: JSON.stringify({
+                modelUri: "gpt://b1gajhqj013i06a145a5/yandexgpt-lite",
+                completionOptions: {
+                  stream: false,
+                  temperature: 0.6,
+                  maxTokens: "2000"
+                },
+                messages: [{
+                  role: 'user',
+                  content: question
+                }]
+              })
+            });
+
+        const responseJson = await response.json();
+        const reply = responseJson.text;
+
+        resolve(reply);
+      } catch (error) {
+        reject('Error sending message to Yandex GPT: ' + error + '!');
+      }
+    });
+
+        const botMessage = this.createMessage(botMessagePromise, 'bot');
+        this.chatLog.appendChild(botMessage);
+        this.chatLog.scrollTop = this.chatLog.scrollHeight;
+    }
+
+    createMessage(messagePromise, sender) {
+        if (!(sender === 'user' || sender === 'bot')) {
+            return null;
+        }
+
+        const message = document.createElement('div');
+        message.classList.add('chat-log-message', `chat-log-message-${sender}`);
+
+        messagePromise.then(text => {
+            message.querySelector('.chat-log-message-text').textContent = text;
+        }).catch(error => {
+            message.querySelector('.chat-log-message-text').textContent = error;
+        }).finally(() => {
+            this.chatLog.scrollTop = this.chatLog.scrollHeight;
+        });
+
+        message.insertAdjacentHTML(
+            'beforeend',
+            `<div class="chat-log-message-author chat-log-message-author-${sender}"></div>
+             <div class="chat-log-message-text chat-log-message-text-${sender}"><div class="dot-flashing"></div></div>`
+        );
+
+        return message;
+    }
+
+    hasPadding () {
+        return false;
+    }
+}
