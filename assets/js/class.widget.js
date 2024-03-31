@@ -37,7 +37,7 @@ class CWidgetYandexGPT extends CWidget {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Api-Key AQVNyWY5uccLZ6Fsl9a1ndtRVpJT7UvWhuD_IcC7',
+                'Authorization': 'Api-Key API',
                 'User-Agent': 'Python-requests/x.y.z',
               },
               body: question
