@@ -1,48 +1,30 @@
-# Zabbix ChatGPT widget
+# Виджет Zabbix YandexGPT
 
-## Description
+## Описание
 
-This is a Zabbix widget using ChatGPT bot, which responds accordingly to the standard OpenAI requests.
+Это виджет для Zabbix, использующий бота YandexGPT, который делает отчёт по инцидентам хостов.
 
-Deme examle https://www.initmax.cz/zabbix/zabbix.php?action=dashboard.view&dashboardid=56&page=10 (Login as Quest)
+## Требования
+ - Zabbix 7.0 (всё ещё в разработке, поэтому этот модуль будет обновляться соответственно)
+ - Необходимо создать API-токен YandexGPT [по ссылке](https://cloud.yandex.ru/docs/overview)
 
-## Widget
-<img src="images/ChatGPT.png" width="1024" />
+## Настройка
 
-## Configuration popup
-<img src="images/ChatGPT-setting.png" width="1024" />
+1\. Клонируйте репозиторий в папку `ui/modules/` (стандартный путь `/usr/share/zabbix/modules/`)
 
-## Requirements
- - Zabbix 7.0 (still in development, so this module will be updated accordingly)
- - You need to create OpenAI API token https://platform.openai.com/docs/introduction/overview
+2\. Измените владельца директории на веб-пользователя с помощью команды `chown`
 
-## Setup
+3\. Перейдите в Меню -> Администрирование -> Общие -> Модули
 
-1\. Clone repository into the `ui/modules/` folder (standard path is `/usr/share/zabbix/modules/`)
+4\. Нажмите кнопку "Сканировать директорию" в верхней части
 
-2\. Change the owner of directory to your web user with `chown`
+5\. Включите модуль
 
-3\. Go to Menu -> Administration -> General -> Modules
+6\. Используйте и наслаждайтесь!
 
-4\. Use the Scan directory button on the top
+## Конфигурация Zabbix
 
-5\. Enable the module
+Специфическая конфигурация Zabbix не требуется.
 
-6\. Use it and enjoy!
 
-## Zabbix configuration
 
-No specific Zabbix configuration is required.
-
-### Macros used
-
-No macros in use.
-
----
-**Like, share and follow us** 😍 for more content:
-- [LinkedIn](https://www.linkedin.com/company/initmax/)🔥
-- [Twitter](https://twitter.com/initmax)
-- [Instagram](https://www.instagram.com/initmax/)
-- [Facebook](https://www.facebook.com/initmax)
-- [Web](https://www.initmax.cz/)
-- [Youtube](https://www.youtube.com/@initmax1)
