@@ -17,12 +17,27 @@
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
-
+use Modules\YandexGPT\Widget;
 ?>
 
 window.widget_openai_form = new class {
 
     init() {
-
+   	this._form = document.getElementById('widget-dialogue-form');
+    this._chat_type = document.getElementById('chat_type');
+    for (const checkbox of this._chat_type.querySelectorAll('input')) {
+			checkbox.addEventListener('change', () => this.updateForm());
+		}        
+    this.updateForm();
     }
+   	updateForm() {
+		const is_digital = this._chat_type.querySelector('input:checked').value == <?= Widget::TYPE_REPORT ?>;
+
+		for (const element of this._form.querySelectorAll('.js-row-show')) {
+			element.style.display = is_digital ? '' : 'none';
+		}
+	
+			}
+		
+     
 };

@@ -25,7 +25,13 @@ use Zabbix\Widgets\CWidgetForm;
 use Zabbix\Widgets\Fields\CWidgetFieldSelect;
 use Zabbix\Widgets\Fields\CWidgetFieldTextBox;
 use Zabbix\Widgets\Fields\CWidgetFieldRadioButtonList;
-
+use Zabbix\Widgets\Fields\CWidgetFieldSeverities;
+use Zabbix\Widgets\Fields\CWidgetFieldTags;
+use Zabbix\Widgets\Fields\CWidgetFieldCheckBoxList;
+use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectGroup;
+use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectOverrideHost;
+use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectHost;
+use Modules\YandexGPT\Widget;
 /**
  * OpenAI widget form.
  */
@@ -40,10 +46,31 @@ class WidgetForm extends CWidgetForm {
     public function addFields(): self {
         return $this
         ->addField(
-				(new CWidgetFieldRadioButtonList('evaltype', _('Problem tags'), [
-					TAG_EVAL_TYPE_AND_OR => _('Chat'),
-					TAG_EVAL_TYPE_OR => _('Report')
-				]))->setDefault(TAG_EVAL_TYPE_AND_OR)
+				(new CWidgetFieldRadioButtonList('chat_type', _('Mode'), [
+					Widget::TYPE_CHAT => _('Chat'),
+					Widget::TYPE_REPORT => _('Report')
+				]))->setDefault(Widget::TYPE_CHAT)
+			)
+      	->addField($this->isTemplateDashboard()
+				? null
+				: new CWidgetFieldMultiSelectGroup('groupids', _('Host groups'))
+			)
+			->addField($this->isTemplateDashboard()
+				? null
+				: new CWidgetFieldMultiSelectGroup('exclude_groupids', _('Exclude host groups'))
+			)
+			->addField($this->isTemplateDashboard()
+				? null
+				: new CWidgetFieldMultiSelectHost('hostids', _('Hosts'))
+			)
+			->addField(
+				new CWidgetFieldTextBox('problem', _('Problem'))
+			)
+			->addField(
+				new CWidgetFieldSeverities('severities', _('Severity'))
+			)
+     	->addField(
+				new CWidgetFieldTextBox('problem', _('Problem'))
 			)
       ->addField(
                 (new CWidgetFieldTextBox('token', _('API Token')))

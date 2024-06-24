@@ -25,8 +25,13 @@ use Zabbix\Core\CWidget;
 
 class Widget extends CWidget 
 {
+public const TYPE_CHAT = 0;
+public const TYPE_REPORT = 1;
 public const TYPE_ANALOG = 0;
-	public const TYPE_DIGITAL = 1;
+public const TYPE_DIGITAL = 1;
+	public const SHOW_DATE = 1;
+	public const SHOW_TIME = 2;
+	public const SHOW_TIMEZONE = 3;
     public function getDefaultName(): string {
 		return _('YandexGPT');
 	}
