@@ -42,7 +42,7 @@ class CWidgetOpenAI extends CWidget {
                 'User-Agent': 'Python-requests/x.y.z',
               },
               body: JSON.stringify({
-                modelUri: "gpt://b1gajhqj013i06a145a5/yandexgpt-lite",
+                modelUri: "gpt://b1gajhqj013i06a145a5/ZabbixAI-lite",
                 completionOptions: {
                   stream: false,
                   temperature: 0.6,

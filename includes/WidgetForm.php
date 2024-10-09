@@ -18,7 +18,7 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-namespace Modules\YandexGPT\Includes;
+namespace Modules\ZabbixAI\Includes;
 
 use Zabbix\Widgets\CWidgetField;
 use Zabbix\Widgets\CWidgetForm;
@@ -31,7 +31,7 @@ use Zabbix\Widgets\Fields\CWidgetFieldCheckBoxList;
 use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectGroup;
 use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectOverrideHost;
 use Zabbix\Widgets\Fields\CWidgetFieldMultiSelectHost;
-use Modules\YandexGPT\Widget;
+use Modules\ZabbixAI\Widget;
 /**
  * OpenAI widget form.
  */

@@ -1,4 +1,4 @@
-class CWidgetYandexGPT extends CWidget {
+class CWidgetZabbixAI extends CWidget {
     apiToken = this._fields.token;
     zabbixApiToken = '15c21a91b7e81b6070f8ab656a93ee28d6fd18fa38803253100a079f0b649c5f';
     chatLogData = [];
@@ -84,7 +84,7 @@ class CWidgetYandexGPT extends CWidget {
             const problems = await this.fetchHostProblems(hostIdentifier);
             console.log('Problems fetched:', problems);
 
-            const query = `Сделай рекомендацию по устранению данной проблемы найденной в Zabbix: ${problems}`;
+            const query = `make Zabbix: ${problems}`;
             
             const botMessagePromise = new Promise(async (resolve, reject) => {
                 try {

@@ -18,7 +18,7 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-namespace Modules\YandexGPT\Actions;
+namespace Modules\ZabbixAI\Actions;
 
 use CControllerDashboardWidgetView;
 use CControllerResponseData;

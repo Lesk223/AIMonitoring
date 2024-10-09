@@ -18,7 +18,7 @@
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
-namespace Modules\YandexGPT;
+namespace Modules\ZabbixAI;
 
 
 use Zabbix\Core\CWidget;
@@ -33,6 +33,6 @@ public const TYPE_DIGITAL = 1;
 	public const SHOW_TIME = 2;
 	public const SHOW_TIMEZONE = 3;
     public function getDefaultName(): string {
-		return _('YandexGPT');
+		return _('ZabbixAI');
 	}
 }

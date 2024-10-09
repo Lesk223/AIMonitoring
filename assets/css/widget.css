@@ -15,14 +15,14 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    background-color: #2b2b2b;
+    background-color: #ffffff; /*фон всего виджета*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
     font-size: 1.25rem;
     font-family: 'Rubik';
-    color: white;
+    color: rgb(255, 255, 255); /*цвет текста в сообщениях*/    
 }
 
 .chat-header {
@@ -55,17 +55,17 @@
 
     border-width: 1px !important;
     border-style: solid !important;
-    border-color: #7137FF !important;
+    border-color: #0d21a2 !important;
     border-right: none !important;
 
     border-radius: 1rem 0 0 1rem;
 
     padding: 0rem 1rem !important;
 
-    background-color: #161617 !important;
+    background-color: #ffffff !important; /*фон строки ввода*/
 
     font-family: 'Rubik';
-    color: white !important;
+    color: #0d21a2 !important; /*цвет строки ввода*/
 }
 
 .chat-form-button {
@@ -75,10 +75,10 @@
 
     border-width: 1px;
     border-style: solid;
-    border-color: #7137FF;
+    border-color: #0d21a2;
     border-left: none;
     
-    background-color: #FFFFFF25 !important;
+    background-color: #0d21a2 !important; /* цвет кнопки*/
 
     font-size: 2rem;
 }
@@ -86,7 +86,7 @@
 .chat-form-button:hover {
     border-width: 1px;
     border-style: solid;
-    border-color: #7137FF;
+    border-color: #0d21a2;
     border-left: none;
 }
 
@@ -101,6 +101,9 @@
 }
 
 .chat-log-message-bot {
+    font-size: 1.25rem;
+    font-family: 'Rubik';
+    color: #0d21a2; /*цвет текста в сообщениях*/   
 }
 
 .chat-log-message-user {
@@ -115,14 +118,14 @@
 
     border-style: solid;
     border-width: 1px;
-    border-color: #7137FF;
+    border-color: hsl(232, 85%, 34%);
     border-radius: 50%;
 
     align-self: flex-end;
 
     background-position: center;
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: white; /*фон сзади аватара бота*/
 }
 /* Стилизация скроллбара для Webkit-браузеров (Chrome, Safari и т.д.) */
 .chat-log::-webkit-scrollbar {
@@ -130,11 +133,11 @@
 }
 
 .chat-log::-webkit-scrollbar-track {
-    background: #2b2b2b; /* цвет дорожки скроллбара */
+    background: #1645be; /* цвет дорожки скроллбара */
 }
 
 .chat-log::-webkit-scrollbar-thumb {
-    background-color: #7137FF; /* цвет самого скроллбара */
+    background-color: #4c59b3; /* цвет самого скроллбара */
     border-radius: 6px; /* закругление углов */
     border: 3px solid #2c3e50; /* граница вокруг скроллбара с фоном, чтобы создать "канал" */
 }
@@ -142,11 +145,11 @@
 /* Стилизация скроллбара для Firefox */
 .chat-log {
     scrollbar-width: thin; /* "thin" или "auto" или "none" */
-    scrollbar-color: #7137FF #2c3e50; /* цвет скроллбара и дорожки */
+    scrollbar-color: #0d21a2 #ffffff; /* цвет скроллбара и дорожки */
 }
 
 .chat-log-message-author-bot {
-    background-image: url('../img/yandex-avatar.png');
+    background-image: url('../img/hse-avatar.png');
     background-size: 75%;
 }
 
@@ -181,7 +184,7 @@
 
     text-align: justify;
 
-    border-color: #7137FF;
+    border-color: #0d21a2;
     border-style: solid;
     border-width: 1px;
     border-radius: 1rem;
@@ -193,7 +196,7 @@
 }
 
 .chat-log-message-text-user {
-    background-color: #7137FF;
+    background-color: #0d21a2;
     justify-content: flex-end;
 }
 
@@ -204,8 +207,8 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: #9880ff;
-    color: #9880ff;
+    background-color: #0d21a2;
+    color: #0d21a2;
     animation: dot-flashing 1s infinite linear alternate;
     animation-delay: 0.5s;
 }
@@ -222,8 +225,8 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: #9880ff;
-    color: #9880ff;
+    background-color: #0d21a2;
+    color: #0d21a2;
     animation: dot-flashing 1s infinite alternate;
     animation-delay: 0s;
 }
@@ -232,17 +235,17 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: #9880ff;
-    color: #9880ff;
+    background-color: #0d21a2;
+    color: #0d21a2;
     animation: dot-flashing 1s infinite alternate;
     animation-delay: 1s;
 }
 
 @keyframes dot-flashing {
     0% {
-        background-color: #9880ff;
+        background-color: #0d21a2;
     }
     50%, 100% {
-        background-color: rgba(152, 128, 255, 0.2);
+        background-color: rgba(160, 173, 36, 0.2);
     }
 }
